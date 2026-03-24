@@ -24,7 +24,8 @@ export function SocketProvider({ children }) {
         }
 
         // Create socket connection with auth
-        const socket = io(window.location.origin, {
+        const URL = import.meta.env.VITE_API_URL || 'https://foodwebsite-cxy2.onrender.com';
+        const socket = io(URL, {
             auth: { token: user.token },
             reconnection: true,
             reconnectionAttempts: 10,
