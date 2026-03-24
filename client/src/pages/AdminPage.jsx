@@ -362,6 +362,9 @@ export default function AdminPage() {
                                     <input className="form-input" type="url" value={itemForm.image}
                                         onChange={(e) => setItemForm({ ...itemForm, image: e.target.value })}
                                         placeholder="https://..." />
+                                    <small style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', marginTop: '4px', display: 'block' }}>
+                                        Must be a direct image link (e.g., ends in .jpg or .png). Right-click an image and select "Copy image address".
+                                    </small>
                                 </div>
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
                                     <div className="form-group">
