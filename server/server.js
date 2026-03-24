@@ -18,7 +18,7 @@ const app = express();
 
 // ─── Global Middleware ─────────────────────────────────────────
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: process.env.CLIENT_URL ? [process.env.CLIENT_URL, 'http://localhost:5173', 'https://foodwebsite-inky.vercel.app'] : ['http://localhost:5173', 'https://foodwebsite-inky.vercel.app'],
     credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URL || 'http://localhost:5173',
+        origin: process.env.CLIENT_URL ? [process.env.CLIENT_URL, 'http://localhost:5173', 'https://foodwebsite-inky.vercel.app'] : ['http://localhost:5173', 'https://foodwebsite-inky.vercel.app'],
         credentials: true
     }
 });
